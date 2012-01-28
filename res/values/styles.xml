@@ -1,0 +1,24 @@
+<resources>
+    <style name="ActionBarCompatBackground" parent="ActionBarCompat">
+        <item name="android:background">@drawable/top_bar</item>
+    </style>
+    
+    <style name="DashboardButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:drawablePadding">5dp</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">@drawable/dashboard_button</item>
+        <item name="android:duplicateParentState">true</item>
+    </style>    
+    
+    <style name="DashboardItem">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@drawable/dashboard_button</item>
+    </style>    
+</resources>

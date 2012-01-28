@@ -1,0 +1,5 @@
+<resources>
+    <style name="MyAppTheme" parent="AppTheme">
+        <item name="android:windowTitleBackgroundStyle">@style/ActionBarCompatBackground</item>
+    </style>
+</resources>

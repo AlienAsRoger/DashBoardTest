@@ -1,12 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@id/mainView"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+     >
 
-    <TextView
+    <!--
+         <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hello" />
+        android:text="@string/hello" />
+    -->
+
+
+    <!--
+     	<RelativeLayout 
+	    >
+	    <View 
+	        android:layout_centerInParent="true"/>
+	</RelativeLayout>
+    -->
+
+    <com.chess.dashboard_test.DashBoardLayout2
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <FrameLayout 
+            android:id="@id/playLiveFrame"
+            style="@style/DashboardItem" >
+
+            <Button
+                android:id="@id/playLive"
+                style="@style/DashboardButton"
+                android:layout_centerInParent="true"
+                android:drawableTop="@drawable/dashboard_button2"
+                android:text="Play Live" />
+        </FrameLayout>
+
+        <FrameLayout 
+            android:id="@id/playOnlineFrame"
+            style="@style/DashboardItem" >
+
+            <Button
+                android:id="@id/playOnline"
+                style="@style/DashboardButton"
+                android:drawableTop="@drawable/dashboard_button2"
+                android:text="Play Live" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@id/playComputerFrame"
+             style="@style/DashboardItem" >
+
+            <Button
+                android:id="@id/playComputer"
+                style="@style/DashboardButton"
+                android:drawableTop="@drawable/dashboard_button2"
+                android:text="Play Live" />
+        </FrameLayout>
+
+        <FrameLayout 
+            android:id="@id/tacticsTrainerFrame"
+            style="@style/DashboardItem" >
+
+            <Button
+                android:id="@id/tacticsTrainer"
+                style="@style/DashboardButton"
+                android:drawableTop="@drawable/dashboard_button2"
+                android:text="Play Live" />
+        </FrameLayout>
+
+        <FrameLayout 
+            android:id="@id/videoLessonsFrame"
+            style="@style/DashboardItem" >
+
+            <Button
+                android:id="@id/videoLessons"
+                style="@style/DashboardButton"
+                android:drawableTop="@drawable/dashboard_button2"
+                android:text="Play Live" />
+        </FrameLayout>
+
+        <FrameLayout 
+            android:id="@id/logOutFrame"
+            style="@style/DashboardItem" >
+
+            <Button
+                android:id="@id/logOut"
+                style="@style/DashboardButton"
+                android:drawableTop="@drawable/dashboard_button2"
+                android:text="Play Live" />
+        </FrameLayout>
+
+    </com.chess.dashboard_test.DashBoardLayout2>
 
 </LinearLayout>
