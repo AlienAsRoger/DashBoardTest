@@ -15,15 +15,15 @@ public class DashBoardTestActivity extends ActionBarActivity implements OnClickL
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.main);
+		setContentView(R.layout.main2);
 
 		View mainView = findViewById(R.id.mainView);
 		mainView.setBackgroundDrawable(new BackgroundChessDrawable(this));
 		int padding = getResources().getDrawable(R.drawable.chess_cells).getIntrinsicWidth() / 2;
 		mainView.setPadding(padding, padding, padding, padding);
 
-		findViewById(R.id.playLive).setTouchDelegate(findViewById(R.id.playLiveFrame).getTouchDelegate());
-		findViewById(R.id.playLiveFrame).setOnClickListener(this);
+//		findViewById(R.id.playLive).setTouchDelegate(findViewById(R.id.playLiveFrame).getTouchDelegate());
+//		findViewById(R.id.playLiveFrame).setOnClickListener(this);
 	}
 
 	@Override
