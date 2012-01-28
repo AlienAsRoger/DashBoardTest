@@ -1,6 +1,7 @@
 package com.chess.dashboard_test;
 
 import actionbarcompat.ActionBarActivity;
+import android.graphics.PixelFormat;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -54,5 +55,13 @@ public class DashBoardTestActivity extends ActionBarActivity implements OnClickL
 		}
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public void onAttachedToWindow() {
+		super.onAttachedToWindow();
+
+		// Eliminates color banding
+		getWindow().setFormat(PixelFormat.RGBA_8888);
 	}
 }
