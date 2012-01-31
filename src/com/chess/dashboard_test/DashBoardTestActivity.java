@@ -15,7 +15,7 @@ public class DashBoardTestActivity extends ActionBarActivity implements OnClickL
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.main2);
+		setContentView(R.layout.main2_1);
 
 		View mainView = findViewById(R.id.mainView);
 		mainView.setBackgroundDrawable(new BackgroundChessDrawable(this));

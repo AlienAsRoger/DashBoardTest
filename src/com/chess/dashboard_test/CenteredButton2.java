@@ -5,14 +5,16 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.os.SystemClock;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 
 //public class CenteredButton extends FrameLayout {
-public class CenteredButton extends RelativeLayout {
+public class CenteredButton2 extends RelativeLayout {
 
 	static final String TAG = "CenteredButton";
 	private final int DEFAULT_WIDTH = 100;
@@ -31,19 +33,47 @@ public class CenteredButton extends RelativeLayout {
 	private int mMaxChildWidth = 0;
 	private int mMaxChildHeight = 0;
 
+	void sleepSixSeconds() {
+		// hang forever; good for producing ANRs
+		long start = SystemClock.uptimeMillis();
+		do {
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+			}
+		} while (SystemClock.uptimeMillis() < start + 6000);
+	}
 
-	public CenteredButton(Context context, AttributeSet attrs, int defStyle) {
+	// Shadow builder that can ANR if desired
+	class ANRShadowBuilder extends DragShadowBuilder {
+		boolean mDoAnr;
+
+		public ANRShadowBuilder(View view, boolean doAnr) {
+			super(view);
+			mDoAnr = doAnr;
+		}
+
+		@Override
+		public void onDrawShadow(Canvas canvas) {
+			if (mDoAnr) {
+				sleepSixSeconds();
+			}
+			super.onDrawShadow(canvas);
+		}
+	}
+
+	public CenteredButton2(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
 //		attrs.
 		init(context, attrs);
 	}
 
-	public CenteredButton(Context context, AttributeSet attrs) {
+	public CenteredButton2(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		init(context, attrs);
 	}
 
-	public CenteredButton(Context context) {
+	public CenteredButton2(Context context) {
 		super(context);
 //		init(context);
 	}
@@ -72,10 +102,19 @@ public class CenteredButton extends RelativeLayout {
 
 		Log.i(TAG, "DraggableDot @ " + this + " : radius=" + mRadius + " legend='" + mLegend + "' anr=" + mAnrType);
 
+//		setOnLongClickListener(new View.OnLongClickListener() {
+//			@Override
+//			public boolean onLongClick(View v) {
+//				ClipData data = ClipData.newPlainText("dot", "Dot : " + v.toString());
+//				v.startDrag(data, new ANRShadowBuilder(v, mAnrType == ANR_SHADOW), v, 0);
+//				return true;
+//			}
+//		});
+
 		button = new Button(getContext());
-		LayoutParams buttonParams = new LayoutParams(LayoutParams.WRAP_CONTENT,
-				LayoutParams.WRAP_CONTENT);
-//		buttonParams.addRule(RelativeLayout.CENTER_IN_PARENT);
+		LayoutParams buttonParams = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+				ViewGroup.LayoutParams.MATCH_PARENT);
+		buttonParams.addRule(RelativeLayout.CENTER_IN_PARENT);
 		button.setLayoutParams(buttonParams);
 		button.setText(mLegend);
 		button.setTextColor(Color.RED);
@@ -87,8 +126,8 @@ public class CenteredButton extends RelativeLayout {
 //		drawable.setBounds(bounds);
 		button.setCompoundDrawablesWithIntrinsicBounds(null, drawable, null, null);
 //		button.setCompoundDrawablePadding(20);
-//		button.setBackgroundColor(Color.TRANSPARENT);
-		LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+		button.setBackgroundColor(Color.TRANSPARENT);
+		LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
 		params.addRule(RelativeLayout.CENTER_IN_PARENT);
 //		params.gravity = Gravity.CENTER;
 		addView(button, params);
@@ -118,26 +157,26 @@ public class CenteredButton extends RelativeLayout {
 		super.dispatchDraw(canvas);
 	}
 
-//	@Override
-//	protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
-//		super.onLayout(changed, left, top, right, bottom);
-//		final int count = getChildCount();
-//
-//		// Calculate the number of visible children.
-//
-//		for (int i = 0; i < count; i++) {
-//			final View child = getChildAt(i);
-//			if (child.getVisibility() == GONE) {
-//				continue;
-//			}
-////			child.layout(left, top, right, bottom);
-//		}
-//
-//	}
+	@Override
+	protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+		super.onLayout(changed, left, top, right, bottom);
+		final int count = getChildCount();
+
+		// Calculate the number of visible children.
+
+		for (int i = 0; i < count; i++) {
+			final View child = getChildAt(i);
+			if (child.getVisibility() == GONE) {
+				continue;
+			}
+			child.layout(left, top, right, bottom);
+		}
+
+	}
 
 	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-//		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
 		int height = measureParam(heightMeasureSpec, DEFAULT_HEIGHT);
 		int width = measureParam(widthMeasureSpec, DEFAULT_WIDTH);
@@ -162,10 +201,10 @@ public class CenteredButton extends RelativeLayout {
 
 		// Measure again for each child to be exactly the same size.
 
-		childWidthMeasureSpec = MeasureSpec.makeMeasureSpec(mMaxChildWidth, MeasureSpec.EXACTLY);
-		childHeightMeasureSpec = MeasureSpec.makeMeasureSpec(mMaxChildHeight, MeasureSpec.EXACTLY);
-//		childWidthMeasureSpec = MeasureSpec.makeMeasureSpec(mMaxChildWidth, MeasureSpec.AT_MOST);
-//		childHeightMeasureSpec = MeasureSpec.makeMeasureSpec(mMaxChildHeight, MeasureSpec.AT_MOST);
+//		childWidthMeasureSpec = MeasureSpec.makeMeasureSpec(mMaxChildWidth, MeasureSpec.EXACTLY);
+//		childHeightMeasureSpec = MeasureSpec.makeMeasureSpec(mMaxChildHeight, MeasureSpec.EXACTLY);
+		childWidthMeasureSpec = MeasureSpec.makeMeasureSpec(mMaxChildWidth, MeasureSpec.AT_MOST);
+		childHeightMeasureSpec = MeasureSpec.makeMeasureSpec(mMaxChildHeight, MeasureSpec.AT_MOST);
 
 		for (int i = 0; i < count; i++) {
 			final View child = getChildAt(i);
@@ -184,7 +223,7 @@ public class CenteredButton extends RelativeLayout {
 	}
 
 	private int measureParam(int valueMeasureSpec, int value) {
-		switch (View.MeasureSpec.getMode(valueMeasureSpec)) {
+		switch (MeasureSpec.getMode(valueMeasureSpec)) {
 		case MeasureSpec.EXACTLY:
 			return MeasureSpec.getSize(valueMeasureSpec);
 		case MeasureSpec.AT_MOST:

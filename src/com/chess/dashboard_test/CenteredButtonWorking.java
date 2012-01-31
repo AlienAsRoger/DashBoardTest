@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 
 //public class CenteredButton extends FrameLayout {
-public class CenteredButton extends RelativeLayout {
+public class CenteredButtonWorking extends RelativeLayout {
 
 	static final String TAG = "CenteredButton";
 	private final int DEFAULT_WIDTH = 100;
@@ -32,18 +32,18 @@ public class CenteredButton extends RelativeLayout {
 	private int mMaxChildHeight = 0;
 
 
-	public CenteredButton(Context context, AttributeSet attrs, int defStyle) {
+	public CenteredButtonWorking(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
 //		attrs.
 		init(context, attrs);
 	}
 
-	public CenteredButton(Context context, AttributeSet attrs) {
+	public CenteredButtonWorking(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		init(context, attrs);
 	}
 
-	public CenteredButton(Context context) {
+	public CenteredButtonWorking(Context context) {
 		super(context);
 //		init(context);
 	}
@@ -118,26 +118,26 @@ public class CenteredButton extends RelativeLayout {
 		super.dispatchDraw(canvas);
 	}
 
-//	@Override
-//	protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
-//		super.onLayout(changed, left, top, right, bottom);
-//		final int count = getChildCount();
-//
-//		// Calculate the number of visible children.
-//
-//		for (int i = 0; i < count; i++) {
-//			final View child = getChildAt(i);
-//			if (child.getVisibility() == GONE) {
-//				continue;
-//			}
-////			child.layout(left, top, right, bottom);
-//		}
-//
-//	}
+	@Override
+	protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+		super.onLayout(changed, left, top, right, bottom);
+		final int count = getChildCount();
+
+		// Calculate the number of visible children.
+
+		for (int i = 0; i < count; i++) {
+			final View child = getChildAt(i);
+			if (child.getVisibility() == GONE) {
+				continue;
+			}
+//			child.layout(left, top, right, bottom);
+		}
+
+	}
 
 	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-//		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
 		int height = measureParam(heightMeasureSpec, DEFAULT_HEIGHT);
 		int width = measureParam(widthMeasureSpec, DEFAULT_WIDTH);
@@ -162,10 +162,10 @@ public class CenteredButton extends RelativeLayout {
 
 		// Measure again for each child to be exactly the same size.
 
-		childWidthMeasureSpec = MeasureSpec.makeMeasureSpec(mMaxChildWidth, MeasureSpec.EXACTLY);
-		childHeightMeasureSpec = MeasureSpec.makeMeasureSpec(mMaxChildHeight, MeasureSpec.EXACTLY);
-//		childWidthMeasureSpec = MeasureSpec.makeMeasureSpec(mMaxChildWidth, MeasureSpec.AT_MOST);
-//		childHeightMeasureSpec = MeasureSpec.makeMeasureSpec(mMaxChildHeight, MeasureSpec.AT_MOST);
+//		childWidthMeasureSpec = MeasureSpec.makeMeasureSpec(mMaxChildWidth, MeasureSpec.EXACTLY);
+//		childHeightMeasureSpec = MeasureSpec.makeMeasureSpec(mMaxChildHeight, MeasureSpec.EXACTLY);
+		childWidthMeasureSpec = MeasureSpec.makeMeasureSpec(mMaxChildWidth, MeasureSpec.AT_MOST);
+		childHeightMeasureSpec = MeasureSpec.makeMeasureSpec(mMaxChildHeight, MeasureSpec.AT_MOST);
 
 		for (int i = 0; i < count; i++) {
 			final View child = getChildAt(i);
@@ -184,7 +184,7 @@ public class CenteredButton extends RelativeLayout {
 	}
 
 	private int measureParam(int valueMeasureSpec, int value) {
-		switch (View.MeasureSpec.getMode(valueMeasureSpec)) {
+		switch (MeasureSpec.getMode(valueMeasureSpec)) {
 		case MeasureSpec.EXACTLY:
 			return MeasureSpec.getSize(valueMeasureSpec);
 		case MeasureSpec.AT_MOST:

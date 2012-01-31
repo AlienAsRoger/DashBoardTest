@@ -10,7 +10,9 @@
          <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hello" />
+        android:text="@string/hello" />
+
+
     -->
 
 
@@ -19,7 +21,10 @@
 	    >
 	    <View 
 	        android:layout_centerInParent="true"/>
-	</RelativeLayout>
+	</RelativeLayout>
+
+
+
     -->
 
     <com.chess.dashboard_test.DashBoardLayout2
@@ -34,8 +39,10 @@
                 android:id="@id/playLive"
                 style="@style/DashboardButton"
                 android:layout_centerInParent="true"
-                android:drawableTop="@drawable/dashboard_button2"
-                android:text="Play Live" />
+                android:drawableTop="@drawable/dashboard_icon"
+
+                android:text="Play Live" 
+                />
         </FrameLayout>
 
         <FrameLayout 
@@ -45,7 +52,7 @@
             <Button
                 android:id="@id/playOnline"
                 style="@style/DashboardButton"
-                android:drawableTop="@drawable/dashboard_button2"
+                android:drawableTop="@drawable/dashboard_item"
                 android:text="Play Live" />
         </FrameLayout>
 
@@ -56,7 +63,7 @@
             <Button
                 android:id="@id/playComputer"
                 style="@style/DashboardButton"
-                android:drawableTop="@drawable/dashboard_button2"
+                android:drawableTop="@drawable/dashboard_item"
                 android:text="Play Live" />
         </FrameLayout>
 
@@ -67,7 +74,7 @@
             <Button
                 android:id="@id/tacticsTrainer"
                 style="@style/DashboardButton"
-                android:drawableTop="@drawable/dashboard_button2"
+                android:drawableTop="@drawable/dashboard_item"
                 android:text="Play Live" />
         </FrameLayout>
 
@@ -78,7 +85,7 @@
             <Button
                 android:id="@id/videoLessons"
                 style="@style/DashboardButton"
-                android:drawableTop="@drawable/dashboard_button2"
+                android:drawableTop="@drawable/dashboard_item"
                 android:text="Play Live" />
         </FrameLayout>
 
@@ -89,7 +96,7 @@
             <Button
                 android:id="@id/logOut"
                 style="@style/DashboardButton"
-                android:drawableTop="@drawable/dashboard_button2"
+                android:drawableTop="@drawable/dashboard_item"
                 android:text="Play Live" />
         </FrameLayout>
 
