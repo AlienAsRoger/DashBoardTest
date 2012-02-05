@@ -37,6 +37,17 @@
                 />
         </FrameLayout>-->
 
+<!--        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="Play Live"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_centerInParent="true"
+            android:drawableTop="@drawable/dashboard_play_live"
+            />-->
+
         <com.chess.dashboard_test.CenteredButton
             android:id="@id/playLiveFrame"
             style="@style/DashboardItem"

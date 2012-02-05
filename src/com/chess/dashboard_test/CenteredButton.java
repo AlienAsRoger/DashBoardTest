@@ -8,11 +8,12 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 
-public class CenteredButton extends FrameLayout implements View.OnClickListener {
+public class CenteredButton extends FrameLayout implements View.OnClickListener, View.OnTouchListener {
 //public class CenteredButton extends RelativeLayout {
 
 	static final String TAG = "CenteredButton";
@@ -24,10 +25,6 @@ public class CenteredButton extends FrameLayout implements View.OnClickListener 
 	int mRadius;
 	int mAnrType;
 	CharSequence buttonText;
-
-	static final int ANR_NONE = 0;
-	static final int ANR_SHADOW = 1;
-	static final int ANR_DROP = 2;
 
 	private int mMaxChildWidth = 0;
 	private int mMaxChildHeight = 0;
@@ -70,7 +67,8 @@ public class CenteredButton extends FrameLayout implements View.OnClickListener 
 		Log.i(TAG, "DraggableDot @ " + this + " : radius=" + mRadius + " legend='" + buttonText + "' anr=" + mAnrType);
 
 		button = new Button(getContext());
-		LayoutParams buttonParams = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+//		LayoutParams buttonParams = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+		LayoutParams buttonParams = new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT);
 //		buttonParams.addRule(RelativeLayout.CENTER_IN_PARENT);
 		button.setLayoutParams(buttonParams);
 		button.setText(buttonText);
@@ -79,21 +77,71 @@ public class CenteredButton extends FrameLayout implements View.OnClickListener 
 //		button.setDuplicateParentStateEnabled(true);
 //		button.setCompoundDrawablePadding(20);
 		button.setBackgroundColor(Color.TRANSPARENT);
-		LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+//		LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+		LayoutParams params = new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT);
 		params.gravity = Gravity.CENTER;
 
 		addView(button, params);
-		button.setTouchDelegate(getTouchDelegate());
+//		button.setTouchDelegate(getTouchDelegate());
 		this.setTouchDelegate(button.getTouchDelegate());
 		button.setClickable(true);
 		button.setOnClickListener(this);
+		button.setOnTouchListener(this);
 		setClickable(true);
 	}
+
+
 
 	@Override
 	public void setPressed(boolean pressed) {
 		super.setPressed(pressed);
 		button.setPressed(pressed);
+	}
+
+	/**
+	 * Implement this method to handle touch screen motion events.
+	 *
+	 * @param event The motion event.
+	 * @return True if the event was handled, false otherwise.
+	 */
+	public boolean onTouchEvent(MotionEvent event) {
+
+		switch (event.getAction()) {
+			case MotionEvent.ACTION_DOWN:
+				button.performClick();
+				setPressed(true);
+				button.refreshDrawableState();
+
+
+				break;
+			case MotionEvent.ACTION_UP:
+				button.setPressed(false);
+				button.refreshDrawableState();
+				break;
+			case MotionEvent.ACTION_MOVE:
+				button.setPressed(true);
+				button.refreshDrawableState();
+
+				break;
+		}
+		return super.onTouchEvent(event);
+	}
+
+	@Override
+	public boolean onTouch(View view, MotionEvent motionEvent) {
+		switch (motionEvent.getAction()) {
+			case MotionEvent.ACTION_DOWN:
+				setPressed(true);
+				refreshDrawableState();
+				performClick();
+
+				break;
+			case MotionEvent.ACTION_UP:
+				setPressed(false);
+				refreshDrawableState();
+				break;
+		}
+		return false;
 	}
 
 	@Override
@@ -158,22 +206,19 @@ public class CenteredButton extends FrameLayout implements View.OnClickListener 
 	}
 
 	private boolean isButtonClicked;
-	@Override
-	public boolean performClick() {
-		if(!isButtonClicked)
-			button.performClick();
-		return super.performClick();
-	}
+//	@Override
+//	public boolean performClick() {
+//		refreshDrawableState();
+//		if(!isButtonClicked)
+//			button.performClick();
+//		return super.performClick();
+//	}
 
 	@Override
 	public void onClick(View view) {
-//		callOnClick();
-		if(view.equals(button)){
-			isButtonClicked = true;
-		}else
-			isButtonClicked = false;
-		performClick();
-
-		//To change body of implemented methods use File | Settings | File Templates.
+		isButtonClicked = view.equals(button);
+//		performClick();
 	}
+
+
 }
