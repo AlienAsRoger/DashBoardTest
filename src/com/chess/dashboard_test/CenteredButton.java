@@ -7,12 +7,13 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.RelativeLayout;
+import android.widget.FrameLayout;
 
-//public class CenteredButton extends FrameLayout {
-public class CenteredButton extends RelativeLayout {
+public class CenteredButton extends FrameLayout {
+//public class CenteredButton extends RelativeLayout {
 
 	static final String TAG = "CenteredButton";
 	private final int DEFAULT_WIDTH = 100;
@@ -22,7 +23,7 @@ public class CenteredButton extends RelativeLayout {
 
 	int mRadius;
 	int mAnrType;
-	CharSequence mLegend;
+	CharSequence buttonText;
 
 	static final int ANR_NONE = 0;
 	static final int ANR_SHADOW = 1;
@@ -31,24 +32,21 @@ public class CenteredButton extends RelativeLayout {
 	private int mMaxChildWidth = 0;
 	private int mMaxChildHeight = 0;
 
-
 	public CenteredButton(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
-//		attrs.
-		init(context, attrs);
+		initFromAttr(context, attrs);
 	}
 
 	public CenteredButton(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		init(context, attrs);
+		initFromAttr(context, attrs);
 	}
 
 	public CenteredButton(Context context) {
 		super(context);
-//		init(context);
 	}
 
-	private void init(Context context, AttributeSet attrs) {
+	private void initFromAttr(Context context, AttributeSet attrs) {
 		// look up any layout-defined attributes
 		TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.CenteredButton);
 
@@ -58,82 +56,49 @@ public class CenteredButton extends RelativeLayout {
 			switch (attr) {
 			case R.styleable.CenteredButton_buttonDrawable: {
 				drawable = a.getDrawable(i);
-//					mRadius = a.getDimensionPixelSize(attr, 0);
 			}
 				break;
 
 			case R.styleable.CenteredButton_buttonText: {
-				mLegend = a.getText(attr);
+				buttonText = a.getText(attr);
 			}
 				break;
 
 			}
 		}
 
-		Log.i(TAG, "DraggableDot @ " + this + " : radius=" + mRadius + " legend='" + mLegend + "' anr=" + mAnrType);
+		Log.i(TAG, "DraggableDot @ " + this + " : radius=" + mRadius + " legend='" + buttonText + "' anr=" + mAnrType);
 
 		button = new Button(getContext());
-		LayoutParams buttonParams = new LayoutParams(LayoutParams.WRAP_CONTENT,
-				LayoutParams.WRAP_CONTENT);
+		LayoutParams buttonParams = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 //		buttonParams.addRule(RelativeLayout.CENTER_IN_PARENT);
 		button.setLayoutParams(buttonParams);
-		button.setText(mLegend);
-		button.setTextColor(Color.RED);
-//		int left = 0;
-//		int right = drawable.getIntrinsicWidth();
-//		int top = 0;
-//		int bottom = drawable.getIntrinsicHeight();
-//		Rect bounds = new Rect(left, top, right, bottom);
-//		drawable.setBounds(bounds);
+		button.setText(buttonText);
+		button.setTextColor(Color.WHITE);
 		button.setCompoundDrawablesWithIntrinsicBounds(null, drawable, null, null);
+		button.setDuplicateParentStateEnabled(true);
 //		button.setCompoundDrawablePadding(20);
-//		button.setBackgroundColor(Color.TRANSPARENT);
+		button.setBackgroundColor(Color.TRANSPARENT);
 		LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-		params.addRule(RelativeLayout.CENTER_IN_PARENT);
-//		params.gravity = Gravity.CENTER;
+		params.gravity = Gravity.CENTER;
+
 		addView(button, params);
-//		setBackgroundColor(R.color.dashboard_button);
-		setBackgroundResource(R.drawable.dashboard_button);
+
+		setClickable(true);
 	}
 
-	public void setButton(Button button) {
-		this.button = button;
-		button.setTouchDelegate(this.getTouchDelegate());
-//		button.get
-//		findViewById(R.id.meter_Btn).setTouchDelegate(findViewById(R.id.linearLayout2).getTouchDelegate());
+	@Override
+	public void setPressed(boolean pressed) {
+		super.setPressed(pressed);
+		button.setPressed(pressed);
 	}
 
 	@Override
 	protected void dispatchDraw(Canvas canvas) {
 		if (button == null)
 			return;
-
-//		int left = 0;
-//		int right = 50;
-//		int top = 0;
-//		int bottom = 50;
-//		Rect bounds = new Rect(left, top, right, bottom);
-//		drawable.setBounds(bounds);
-//		button.draw(canvas);
 		super.dispatchDraw(canvas);
 	}
-
-//	@Override
-//	protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
-//		super.onLayout(changed, left, top, right, bottom);
-//		final int count = getChildCount();
-//
-//		// Calculate the number of visible children.
-//
-//		for (int i = 0; i < count; i++) {
-//			final View child = getChildAt(i);
-//			if (child.getVisibility() == GONE) {
-//				continue;
-//			}
-////			child.layout(left, top, right, bottom);
-//		}
-//
-//	}
 
 	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
@@ -154,7 +119,7 @@ public class CenteredButton extends RelativeLayout {
 				continue;
 			}
 
-//			child.measure(childWidthMeasureSpec, childHeightMeasureSpec);
+			child.measure(childWidthMeasureSpec, childHeightMeasureSpec);
 
 			mMaxChildWidth = Math.max(mMaxChildWidth, child.getMeasuredWidth());
 			mMaxChildHeight = Math.max(mMaxChildHeight, child.getMeasuredHeight());
@@ -164,8 +129,6 @@ public class CenteredButton extends RelativeLayout {
 
 		childWidthMeasureSpec = MeasureSpec.makeMeasureSpec(mMaxChildWidth, MeasureSpec.EXACTLY);
 		childHeightMeasureSpec = MeasureSpec.makeMeasureSpec(mMaxChildHeight, MeasureSpec.EXACTLY);
-//		childWidthMeasureSpec = MeasureSpec.makeMeasureSpec(mMaxChildWidth, MeasureSpec.AT_MOST);
-//		childHeightMeasureSpec = MeasureSpec.makeMeasureSpec(mMaxChildHeight, MeasureSpec.AT_MOST);
 
 		for (int i = 0; i < count; i++) {
 			final View child = getChildAt(i);
@@ -173,12 +136,8 @@ public class CenteredButton extends RelativeLayout {
 				continue;
 			}
 
-//			child.measure(childWidthMeasureSpec, childHeightMeasureSpec);
+			child.measure(childWidthMeasureSpec, childHeightMeasureSpec);
 		}
-
-		int w2 = resolveSize(mMaxChildWidth, widthMeasureSpec);
-		int h2 = resolveSize(mMaxChildHeight, heightMeasureSpec);
-//		setMeasuredDimension(w2, h2);
 
 		setMeasuredDimension(width, height);
 	}

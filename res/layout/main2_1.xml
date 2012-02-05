@@ -17,6 +17,19 @@
     <com.chess.dashboard_test.DashBoardLayout2
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+<!--         <FrameLayout 
+            android:id="@id/playLiveFrame"
+            style="@style/DashboardItem" >
+
+            <Button
+                android:id="@id/playLive"
+                style="@style/DashboardButton"
+                android:layout_centerInParent="true"
+                android:drawableTop="@drawable/dashboard_icon"
+
+                android:text="Play Live" 
+                />
+        </FrameLayout> -->        
         <com.chess.dashboard_test.CenteredButton
             android:layout_height="match_parent"
             android:layout_width="match_parent"

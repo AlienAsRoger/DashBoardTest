@@ -15,7 +15,7 @@ public class DashBoardTestActivity extends ActionBarActivity implements OnClickL
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.main2_1);
+		setContentView(R.layout.main3);
 
 		View mainView = findViewById(R.id.mainView);
 		mainView.setBackgroundDrawable(new BackgroundChessDrawable(this));
@@ -23,7 +23,9 @@ public class DashBoardTestActivity extends ActionBarActivity implements OnClickL
 		mainView.setPadding(padding, padding, padding, padding);
 
 //		findViewById(R.id.playLive).setTouchDelegate(findViewById(R.id.playLiveFrame).getTouchDelegate());
-//		findViewById(R.id.playLiveFrame).setOnClickListener(this);
+		findViewById(R.id.playLiveFrame).setOnClickListener(this);
+		findViewById(R.id.playOnlineFrame).setOnClickListener(this);
+
 	}
 
 	@Override
@@ -52,6 +54,8 @@ public class DashBoardTestActivity extends ActionBarActivity implements OnClickL
 	public void onClick(View v) {
 		if (v.getId() == R.id.playLiveFrame) {
 			Toast.makeText(this, "playLiveFrame", Toast.LENGTH_SHORT).show();
+		} else if (v.getId() == R.id.playOnlineFrame) {
+			Toast.makeText(this, "playOnlineFrame", Toast.LENGTH_SHORT).show();
 		}
 		// TODO Auto-generated method stub
 
