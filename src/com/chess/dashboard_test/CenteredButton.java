@@ -12,7 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 
-public class CenteredButton extends FrameLayout {
+public class CenteredButton extends FrameLayout implements View.OnClickListener {
 //public class CenteredButton extends RelativeLayout {
 
 	static final String TAG = "CenteredButton";
@@ -76,14 +76,17 @@ public class CenteredButton extends FrameLayout {
 		button.setText(buttonText);
 		button.setTextColor(Color.WHITE);
 		button.setCompoundDrawablesWithIntrinsicBounds(null, drawable, null, null);
-		button.setDuplicateParentStateEnabled(true);
+//		button.setDuplicateParentStateEnabled(true);
 //		button.setCompoundDrawablePadding(20);
 		button.setBackgroundColor(Color.TRANSPARENT);
 		LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 		params.gravity = Gravity.CENTER;
 
 		addView(button, params);
-
+		button.setTouchDelegate(getTouchDelegate());
+		this.setTouchDelegate(button.getTouchDelegate());
+		button.setClickable(true);
+		button.setOnClickListener(this);
 		setClickable(true);
 	}
 
@@ -152,5 +155,25 @@ public class CenteredButton extends FrameLayout {
 		case MeasureSpec.UNSPECIFIED:
 			return value;
 		}
+	}
+
+	private boolean isButtonClicked;
+	@Override
+	public boolean performClick() {
+		if(!isButtonClicked)
+			button.performClick();
+		return super.performClick();
+	}
+
+	@Override
+	public void onClick(View view) {
+//		callOnClick();
+		if(view.equals(button)){
+			isButtonClicked = true;
+		}else
+			isButtonClicked = false;
+		performClick();
+
+		//To change body of implemented methods use File | Settings | File Templates.
 	}
 }
