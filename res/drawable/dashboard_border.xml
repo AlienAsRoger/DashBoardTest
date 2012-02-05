@@ -32,13 +32,13 @@
     <item >
         <shape >
             <gradient
-                android:startColor="@android:color/transparent"
+                android:startColor="@color/glow_border"
                 android:centerColor="@android:color/transparent"
-                android:endColor="@color/glow_border"
+                android:endColor="@android:color/transparent"
                 android:angle="0"
                 android:type="radial"
 
-                android:gradientRadius="0.2"
+                android:gradientRadius="0.8"
                 />
         </shape>
     </item>

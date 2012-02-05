@@ -3,7 +3,7 @@
     <!--<item android:drawable="@color/orange"/>-->
     <item android:drawable="@drawable/ic_live" />
 
-    <item android:drawable="@drawable/button_pressed"/>
+   <!-- <item android:drawable="@drawable/button_pressed"/>-->
 
 
 </layer-list>
