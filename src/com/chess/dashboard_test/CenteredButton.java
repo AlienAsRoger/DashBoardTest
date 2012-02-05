@@ -73,6 +73,9 @@ public class CenteredButton extends FrameLayout implements View.OnClickListener,
 		button.setLayoutParams(buttonParams);
 		button.setText(buttonText);
 		button.setTextColor(Color.WHITE);
+		button.setTextSize(14);
+
+//		button.setTextSize();
 		button.setCompoundDrawablesWithIntrinsicBounds(null, drawable, null, null);
 //		button.setDuplicateParentStateEnabled(true);
 //		button.setCompoundDrawablePadding(20);
