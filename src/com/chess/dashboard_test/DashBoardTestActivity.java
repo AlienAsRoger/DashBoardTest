@@ -1,6 +1,6 @@
 package com.chess.dashboard_test;
 
-import actionbarcompat.ActionBarActivity;
+import actionbarcompat.ActionBarActivityMy;
 import android.graphics.PixelFormat;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Toast;
 
-public class DashBoardTestActivity extends ActionBarActivity implements OnClickListener {
+public class DashBoardTestActivity extends ActionBarActivityMy implements OnClickListener {
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {

@@ -31,14 +31,18 @@
 
     <item >
         <shape >
+    <!--        <gradient
+                android:centerX="0.2"
+                android:endColor="#00CC00"
+                android:gradientRadius="40"
+                android:startColor="#EE0000"
+                android:type="radial" />    -->
             <gradient
                 android:startColor="@color/glow_border"
                 android:centerColor="@android:color/transparent"
                 android:endColor="@android:color/transparent"
-                android:angle="0"
                 android:type="radial"
-
-                android:gradientRadius="0.8"
+                android:gradientRadius="50%p"
                 />
         </shape>
     </item>
