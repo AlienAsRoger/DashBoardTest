@@ -1,6 +1,14 @@
 <resources>
     <style name="ActionBarCompatBackground" parent="ActionBarCompat">
-        <item name="android:background">@drawable/top_bar_grey</item>
+        <item name="android:background">@drawable/top_bar_grain</item>
+    </style>
+
+    <style name="text_shadow" parent="@android:style/Widget.TextView">
+        <item name="android:typeface">normal</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowRadius">3.5</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
     </style>
 
     <style name="DashboardButton">
@@ -32,5 +40,18 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:background">@drawable/dashboard_item</item>
-    </style>    
+    </style>
+
+
+    <style name="DashboardItemText" parent="@android:style/Widget.TextView">
+        <item name="android:typeface">normal</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowRadius">3.5</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>

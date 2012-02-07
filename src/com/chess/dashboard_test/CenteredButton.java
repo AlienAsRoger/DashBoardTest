@@ -46,6 +46,7 @@ public class CenteredButton extends FrameLayout implements View.OnClickListener,
 	private void initFromAttr(Context context, AttributeSet attrs) {
 		// look up any layout-defined attributes
 		TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.CenteredButton);
+//		TypedArray dashboardItemText = context.obtainStyledAttributes(attrs, R.style.DashboardItemText);
 
 		final int N = a.getIndexCount();
 		for (int i = 0; i < N; i++) {
@@ -53,6 +54,7 @@ public class CenteredButton extends FrameLayout implements View.OnClickListener,
 			switch (attr) {
 			case R.styleable.CenteredButton_buttonDrawable: {
 				drawable = a.getDrawable(i);
+
 			}
 				break;
 
@@ -72,8 +74,10 @@ public class CenteredButton extends FrameLayout implements View.OnClickListener,
 //		buttonParams.addRule(RelativeLayout.CENTER_IN_PARENT);
 		button.setLayoutParams(buttonParams);
 		button.setText(buttonText);
-		button.setTextColor(Color.WHITE);
-		button.setTextSize(14);
+		button.setTextAppearance(getContext(), R.style.DashboardItemText);
+//		button.setTextColor(Color.WHITE);
+//		button.setTextSize(14);
+//		button.set
 
 //		button.setTextSize();
 		button.setCompoundDrawablesWithIntrinsicBounds(null, drawable, null, null);

@@ -59,7 +59,7 @@
             android:id="@id/playOnlineFrame"
             style="@style/DashboardItem"
             dot:buttonDrawable="@drawable/dashboard_play_online"
-            dot:buttonText="Play Live" />
+            dot:buttonText="Play Online" />
 
         <com.chess.dashboard_test.CenteredButton
             android:id="@id/playComputerFrame"
