@@ -17,4 +17,6 @@
     <item name="videoLessonsFrame" type="id"/>
     <item name="logOutFrame" type="id"/>
 
+    <item name="glow_layer" type="id"/>
+
 </resources>

@@ -28,13 +28,13 @@
     </item>
 
     <item
-        android:bottom="1px"
-        android:left="1px"
+        android:bottom="0px"
+        android:left="0px"
         android:right="1px"
         android:top="1px"
         android:id="@id/glow_layer"
         >
-        <shape android:dither="true" >
+        <shape android:dither="true">
             <gradient
                 android:centerX="0.0"
                 android:centerY="100%"

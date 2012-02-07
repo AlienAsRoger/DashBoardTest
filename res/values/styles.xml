@@ -44,11 +44,6 @@
 
 
     <style name="DashboardItemText" parent="@android:style/Widget.TextView">
-        <item name="android:typeface">normal</item>
-        <item name="android:shadowColor">#000000</item>
-        <item name="android:shadowRadius">3.5</item>
-        <item name="android:shadowDx">0</item>
-        <item name="android:shadowDy">0</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textSize">13sp</item>
         <item name="android:textStyle">bold</item>

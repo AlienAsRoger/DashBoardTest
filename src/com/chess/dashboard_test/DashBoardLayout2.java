@@ -15,17 +15,33 @@ public class DashBoardLayout2 extends RelativeLayout {
 
 	private int mMaxChildWidth = 0;
 	private int mMaxChildHeight = 0;
+	private int[] backgrounds;
 
 	public DashBoardLayout2(Context context) {
 		super(context, null);
+		init();
 	}
 
 	public DashBoardLayout2(Context context, AttributeSet attrs) {
 		super(context, attrs, 0);
+		init();
 	}
 
 	public DashBoardLayout2(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
+		init();
+	}
+
+	private void init(){
+		backgrounds = new int[]{
+				R.drawable.dashboard_item_lt,
+				R.drawable.dashboard_item_rt,
+				R.drawable.dashboard_item_lm,
+				R.drawable.dashboard_item_rm,
+			R.drawable.dashboard_item_lb,
+			R.drawable.dashboard_item_rb
+		};
+
 	}
 
 	@Override
@@ -182,6 +198,7 @@ public class DashBoardLayout2 extends RelativeLayout {
 //			bottom = (vSpace == 0 && row == rows - 1) ? b : (top + height);
 
 			child.layout(left, top, right, bottom);
+			child.setBackgroundResource(backgrounds[visibleIndex]);
 			++visibleIndex;
 		}
 	}
