@@ -17,9 +17,11 @@
 package actionbarcompat;
 
 import android.app.Activity;
+import android.graphics.PixelFormat;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.WindowManager;
 
 /**
  * A base activity that defers common functionality across app activities to an {@link
@@ -33,6 +35,13 @@ import android.view.MenuInflater;
 public abstract class ActionBarActivity extends Activity {
     final ActionBarHelper mActionBarHelper = ActionBarHelper.createInstance(this);
 
+	@Override
+	public void onAttachedToWindow() {
+		super.onAttachedToWindow();
+		getWindow().addFlags(WindowManager.LayoutParams.FLAG_DITHER);
+		// Eliminates color banding
+		getWindow().setFormat(PixelFormat.RGBA_8888);
+	}
     /**
      * Returns the {@link ActionBarHelper} for this activity.
      */

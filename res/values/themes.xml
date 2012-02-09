@@ -2,4 +2,14 @@
     <style name="MyAppTheme" parent="AppTheme">
         <item name="android:windowTitleBackgroundStyle">@style/ActionBarCompatBackground</item>
     </style>
+
+    <style name="OrangeButtonTheme" parent="MyAppTheme">
+        <item name="android:buttonStyle">@style/button_orange</item>
+        <item name="android:textAppearanceSmall">@style/DefaultText</item>
+        <item name="android:editTextStyle">@style/DefaultEdt</item>
+        <item name="android:spinnerStyle">@style/spinnerStyle</item>
+        <item name="android:spinnerDropDownItemStyle">@style/spinnerStyleDropDown</item>
+    </style>
+
+
 </resources>

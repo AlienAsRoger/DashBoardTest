@@ -1,16 +1,22 @@
 package com.chess.dashboard_test;
 
 import actionbarcompat.ActionBarActivityMy;
+import android.content.Intent;
 import android.graphics.PixelFormat;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.View;
+import android.view.*;
 import android.view.View.OnClickListener;
 import android.widget.Toast;
 
 public class DashBoardTestActivity extends ActionBarActivityMy implements OnClickListener {
+	@Override
+	public void onAttachedToWindow() {
+		super.onAttachedToWindow();
+		getWindow().addFlags(WindowManager.LayoutParams.FLAG_DITHER);
+		// Eliminates color banding
+		getWindow().setFormat(PixelFormat.RGBA_8888);
+	}
+
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -54,18 +60,19 @@ public class DashBoardTestActivity extends ActionBarActivityMy implements OnClic
 	public void onClick(View v) {
 		if (v.getId() == R.id.playLiveFrame) {
 			Toast.makeText(this, "playLiveFrame", Toast.LENGTH_SHORT).show();
+			startActivity(new Intent(this,ButtonTestActivity.class));
 		} else if (v.getId() == R.id.playOnlineFrame) {
 			Toast.makeText(this, "playOnlineFrame", Toast.LENGTH_SHORT).show();
 		}
 		// TODO Auto-generated method stub
 
 	}
-
+/*
 	@Override
 	public void onAttachedToWindow() {
 		super.onAttachedToWindow();
-
+		getWindow().addFlags(WindowManager.LayoutParams.FLAG_DITHER);
 		// Eliminates color banding
 		getWindow().setFormat(PixelFormat.RGBA_8888);
-	}
+	}*/
 }
