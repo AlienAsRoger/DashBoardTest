@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!--Shadow-->
-    <item
-        >
+    <item >
         <shape android:dither="true"
             >
             <corners android:radius="@dimen/rounded_button_radius"/>
@@ -13,7 +11,6 @@
                     android:color="@color/stroke_shadow"/>
         </shape>
     </item>
-
     <!--Emboss-->
     <item
         android:right="1px"
@@ -22,7 +19,7 @@
         <shape android:dither="true"
             >
             <corners android:radius="@dimen/rounded_button_radius"/>
-            <solid android:color="@color/grey_emboss_top_left"  />
+            <solid android:color="@color/orange_emboss_top_left"  />
 
         </shape>
     </item>
@@ -35,7 +32,7 @@
         <shape android:dither="true"
             >
             <corners android:radius="@dimen/rounded_button_radius"/>
-            <solid android:color="@color/grey_emboss_low_right"  />
+            <solid android:color="@color/orange_emboss_low_right"  />
 
         </shape>
     </item>
@@ -47,10 +44,8 @@
         android:bottom="1px"
         android:right="1px"
         >
-
         <shape android:dither="true" >
-            <solid android:color="@color/grey_button"
-
+            <solid android:color="@color/orange_button_p"
                 />
             <stroke android:width="@dimen/default_stroke_width"
                     android:color="@color/any_button_stroke"/>
@@ -68,7 +63,7 @@
     </item>
 
     <!--Inner shadow-->
-    <!--    <item
+<!--    <item
         android:bottom="1px"
         android:left="1px"
         android:right="1px"

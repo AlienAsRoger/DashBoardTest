@@ -49,7 +49,7 @@
         >
 
         <shape android:dither="true" >
-            <solid android:color="@color/grey_button"
+            <solid android:color="@color/grey_button_p"
 
                 />
             <stroke android:width="@dimen/default_stroke_width"

@@ -14,7 +14,7 @@
             <corners android:radius="@dimen/button_pressed_stroke_radius"  />
             <solid android:color="@android:color/transparent"/>
             <stroke
-                android:width="@dimen/button_pressed_stroke_width"
+                android:width="@dimen/button_pressed_stroke_width_1"
                 android:color="@android:color/transparent"/>
         </shape>
 

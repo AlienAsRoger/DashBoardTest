@@ -19,7 +19,7 @@
         <shape android:dither="true"
             >
             <corners android:radius="@dimen/rounded_button_radius"/>
-            <solid android:color="@color/emboss_orange_top_left"  />
+            <solid android:color="@color/orange_emboss_top_left"  />
 
         </shape>
     </item>
@@ -32,7 +32,7 @@
         <shape android:dither="true"
             >
             <corners android:radius="@dimen/rounded_button_radius"/>
-            <solid android:color="@color/emboss_orange_low_right"  />
+            <solid android:color="@color/orange_emboss_low_right"  />
 
         </shape>
     </item>
@@ -45,13 +45,10 @@
         android:right="1px"
         >
         <shape android:dither="true" >
-            <gradient
-                android:startColor="@color/light_orange_1"
-                android:endColor="@color/light_orange_2"
-                android:angle="270"
+            <solid android:color="@color/orange_button"
                 />
             <stroke android:width="@dimen/default_stroke_width"
-                    android:color="@color/orange_button_stroke"/>
+                    android:color="@color/any_button_stroke"/>
             <corners
                 android:radius="@dimen/rounded_button_radius"
                 />

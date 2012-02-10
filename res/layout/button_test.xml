@@ -22,6 +22,23 @@
         style="@style/button_grey"
         />
 
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/rounded_button_height"
+        android:text="Text"
+        style="@style/button_green"
+        />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/rounded_button_height"
+        android:text="Text"
+        android:background="@drawable/button_green_pressed"
+
+        />
+
 
 
 </LinearLayout>
