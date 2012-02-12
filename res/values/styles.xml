@@ -106,7 +106,8 @@
     </style>
 
     <style name="DefaultEdt" parent="@android:style/Widget.EditText">
-        <!--<item name="android:background">@drawable/textfield_selector</item>-->
+        <item name="android:background">@drawable/textfield_selector</item>
+        <!--<item name="android:background">@drawable/edit_text_selector</item>-->
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">@android:color/black</item>
     </style>
