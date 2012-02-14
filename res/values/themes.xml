@@ -8,7 +8,9 @@
         <item name="android:textAppearanceSmall">@style/DefaultText</item>
         <item name="android:editTextStyle">@style/DefaultEdt</item>
         <item name="android:spinnerStyle">@style/spinnerStyle</item>
-        <item name="android:spinnerDropDownItemStyle">@style/spinnerStyleDropDown</item>
+        <item name="android:checkboxStyle">@style/check_Box</item>
+        <item name="android:radioButtonStyle">@style/radio_Button</item>
+        <!--<item name="android:spinnerDropDownItemStyle">@style/spinnerStyleDropDown</item>-->
     </style>
 
 

@@ -1,0 +1,7 @@
+<resources>
+    <string-array name="AIM">
+        <item>Go to Next Ready Game</item>
+        <item>Stay on Same Game</item>
+        <item>Return to Game List</item>
+    </string-array>
+</resources>
