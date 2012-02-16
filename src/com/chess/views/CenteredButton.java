@@ -1,4 +1,4 @@
-package com.chess.dashboard_test;
+package com.chess.views;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -11,6 +11,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import com.chess.R;
 
 public class CenteredButton extends FrameLayout implements View.OnClickListener, View.OnTouchListener {
 //public class CenteredButton extends RelativeLayout {

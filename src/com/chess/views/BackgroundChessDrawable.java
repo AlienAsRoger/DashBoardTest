@@ -1,19 +1,12 @@
-package com.chess.dashboard_test;
+package com.chess.views;
 
 import android.content.Context;
 import android.content.res.Configuration;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.ColorFilter;
-import android.graphics.LinearGradient;
-import android.graphics.Paint;
+import android.graphics.*;
 import android.graphics.Paint.Style;
-import android.graphics.Path;
-import android.graphics.PixelFormat;
-import android.graphics.Rect;
-import android.graphics.Shader;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
+import com.chess.R;
 
 public class BackgroundChessDrawable extends Drawable {
 

@@ -1,4 +1,4 @@
-package com.chess.dashboard_test;
+package com.chess.views;
 
 import actionbarcompat.ActionBarActivityMy;
 import android.content.Intent;
@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.*;
 import android.view.View.OnClickListener;
 import android.widget.Toast;
+import com.chess.R;
 
 public class DashBoardTestActivity extends ActionBarActivityMy implements OnClickListener {
 	@Override
@@ -25,7 +26,7 @@ public class DashBoardTestActivity extends ActionBarActivityMy implements OnClic
 
 		View mainView = findViewById(R.id.mainView);
 		mainView.setBackgroundDrawable(new BackgroundChessDrawable(this));
-		int padding = getResources().getDrawable(R.drawable.chess_cells).getIntrinsicWidth() / 2;
+		int padding = getResources().getDrawable(R.drawable.chess_cell).getIntrinsicWidth() / 2;
 		mainView.setPadding(padding, padding, padding, padding);
 
 //		findViewById(R.id.playLive).setTouchDelegate(findViewById(R.id.playLiveFrame).getTouchDelegate());

@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="settings">Settings</string>
+    <!--Dashboard labels-->
+    <string name="menuLive">Play Live</string>
+    <string name="menuOnline">Play Online</string>
+    <string name="menuComp">Play Computer</string>
+    <string name="menuTactics">Tactics Trainer</string>
+    <string name="menuVideo">Video Lessons</string>
 </resources>

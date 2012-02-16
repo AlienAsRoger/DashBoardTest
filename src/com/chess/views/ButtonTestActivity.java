@@ -1,8 +1,9 @@
-package com.chess.dashboard_test;
+package com.chess.views;
 
 
 import android.app.Activity;
 import android.os.Bundle;
+import com.chess.R;
 
 /**
  * ButtonTestActivity class
@@ -14,5 +15,7 @@ public class ButtonTestActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.button_test);
+		findViewById(R.id.mainView).setBackgroundDrawable(new BackgroundChessDrawable(this));
+
 	}
 }
