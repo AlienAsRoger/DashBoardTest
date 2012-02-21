@@ -1,9 +1,9 @@
-package com.chess.views;
+package com.chess.test.views;
 
 
 import android.app.Activity;
 import android.os.Bundle;
-import com.chess.R;
+import com.chess.test.R;
 
 /**
  * ButtonTestActivity class

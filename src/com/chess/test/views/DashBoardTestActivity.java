@@ -1,4 +1,4 @@
-package com.chess.views;
+package com.chess.test.views;
 
 import actionbarcompat.ActionBarActivityMy;
 import android.content.Intent;
@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.*;
 import android.view.View.OnClickListener;
 import android.widget.Toast;
-import com.chess.R;
+import com.chess.test.R;
 
 public class DashBoardTestActivity extends ActionBarActivityMy implements OnClickListener {
 	@Override
@@ -18,7 +18,9 @@ public class DashBoardTestActivity extends ActionBarActivityMy implements OnClic
 		getWindow().setFormat(PixelFormat.RGBA_8888);
 	}
 
-	/** Called when the activity is first created. */
+	/**
+	 * Called when the activity is first created.
+	 */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -46,13 +48,13 @@ public class DashBoardTestActivity extends ActionBarActivityMy implements OnClic
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
-		case android.R.id.home:
-			Toast.makeText(this, "Tapped home", Toast.LENGTH_SHORT).show();
-			break;
+			case android.R.id.home:
+				Toast.makeText(this, "Tapped home", Toast.LENGTH_SHORT).show();
+				break;
 
-		case R.id.menu_settings:
-			Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
-			break;
+			case R.id.menu_settings:
+				Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
+				break;
 		}
 		return super.onOptionsItemSelected(item);
 	}
@@ -61,7 +63,7 @@ public class DashBoardTestActivity extends ActionBarActivityMy implements OnClic
 	public void onClick(View v) {
 		if (v.getId() == R.id.playLiveFrame) {
 			Toast.makeText(this, "playLiveFrame", Toast.LENGTH_SHORT).show();
-			startActivity(new Intent(this,ButtonTestActivity.class));
+			startActivity(new Intent(this, ButtonTestActivity.class));
 		} else if (v.getId() == R.id.playOnlineFrame) {
 			Toast.makeText(this, "playOnlineFrame", Toast.LENGTH_SHORT).show();
 		}

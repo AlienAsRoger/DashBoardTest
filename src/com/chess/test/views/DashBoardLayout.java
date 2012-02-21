@@ -1,11 +1,11 @@
-package com.chess.views;
+package com.chess.test.views;
 
 import android.content.Context;
 import android.content.res.Configuration;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RelativeLayout;
-import com.chess.R;
+import com.chess.test.R;
 
 
 /**
@@ -37,7 +37,7 @@ public class DashBoardLayout extends RelativeLayout {
 		init();
 	}
 
-	private void init(){
+	private void init() {
 		portBackgrounds = new int[]{
 				R.drawable.dashboard_item_lt,
 				R.drawable.dashboard_item_rt,
@@ -209,9 +209,9 @@ public class DashBoardLayout extends RelativeLayout {
 //			bottom = (vSpace == 0 && row == rows - 1) ? b : (top + height);
 
 			child.layout(left, top, right, bottom);
-			if(screenOrientation == Configuration.ORIENTATION_LANDSCAPE){
+			if (screenOrientation == Configuration.ORIENTATION_LANDSCAPE) {
 				child.setBackgroundResource(landBackgrounds[visibleIndex]);
-			}else{
+			} else {
 				child.setBackgroundResource(portBackgrounds[visibleIndex]);
 			}
 			++visibleIndex;

@@ -2,6 +2,8 @@
 
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:robo="http://schemas.android.com/apk/res/com.chess.test"
+
     android:id="@id/mainView"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content">
@@ -13,35 +15,39 @@
         android:orientation="vertical"
         android:padding="20dip">
 
-        <Button
+        <com.chess.RoboButton
             android:id="@+id/button"
             android:layout_width="match_parent"
             android:layout_height="@dimen/rounded_button_height"
             android:text="Text"
             style="@style/button_orange"
+            robo:ttf="Regular"
             />
 
-        <Button
+        <com.chess.RoboButton
             android:id="@+id/button2"
             android:layout_width="match_parent"
             android:layout_height="@dimen/rounded_button_height"
             android:text="Text"
             style="@style/button_grey"
+            robo:ttf="Regular"
             />
 
-        <Button
+        <com.chess.RoboButton
             android:id="@+id/button3"
             android:layout_width="match_parent"
             android:layout_height="@dimen/rounded_button_height"
             android:text="Text"
             style="@style/button_green"
+            robo:ttf="Regular"
             />
 
 
-        <EditText
+        <com.chess.RoboEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
+            robo:ttf="Regular"
+            android:hint="Username"
             />
 
         <Spinner

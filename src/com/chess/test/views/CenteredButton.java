@@ -1,4 +1,4 @@
-package com.chess.views;
+package com.chess.test.views;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -11,7 +11,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
-import com.chess.R;
+import com.chess.test.R;
 
 public class CenteredButton extends FrameLayout implements View.OnClickListener, View.OnTouchListener {
 //public class CenteredButton extends RelativeLayout {
@@ -61,10 +61,12 @@ public class CenteredButton extends FrameLayout implements View.OnClickListener,
 			switch (attr) {
 				case R.styleable.CenteredButton_buttonDrawable: {
 					drawable = a.getDrawable(i);
-				}break;
+				}
+				break;
 				case R.styleable.CenteredButton_buttonText: {
 					buttonText = a.getText(attr);
-				}break;
+				}
+				break;
 			}
 		}
 //		getBackground()
@@ -75,10 +77,10 @@ public class CenteredButton extends FrameLayout implements View.OnClickListener,
 		button.setLayoutParams(buttonParams);
 		button.setText(buttonText);
 		button.setTextAppearance(getContext(), R.style.DashboardItemText);
-		float shadowRadius = 1*density + 0.5f;
-		float shadowDx = 0*density + 0.5f;
-		float shadowDy = 0*density + 0.5f;
-		button.setShadowLayer(shadowRadius,shadowDx,shadowDy,Color.BLACK);
+		float shadowRadius = 1 * density + 0.5f;
+		float shadowDx = 0 * density + 0.5f;
+		float shadowDy = 0 * density + 0.5f;
+		button.setShadowLayer(shadowRadius, shadowDx, shadowDy, Color.BLACK);
 		button.setCompoundDrawablesWithIntrinsicBounds(null, drawable, null, null);
 		button.setBackgroundColor(Color.TRANSPARENT);
 		LayoutParams params = new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT);
@@ -91,7 +93,6 @@ public class CenteredButton extends FrameLayout implements View.OnClickListener,
 		button.setOnTouchListener(this);
 		setClickable(true);
 	}
-
 
 
 	@Override
@@ -197,13 +198,13 @@ public class CenteredButton extends FrameLayout implements View.OnClickListener,
 
 	private int measureParam(int valueMeasureSpec, int value) {
 		switch (View.MeasureSpec.getMode(valueMeasureSpec)) {
-		case MeasureSpec.EXACTLY:
-			return MeasureSpec.getSize(valueMeasureSpec);
-		case MeasureSpec.AT_MOST:
-			return Math.min(value, MeasureSpec.getSize(valueMeasureSpec));
-		default:
-		case MeasureSpec.UNSPECIFIED:
-			return value;
+			case MeasureSpec.EXACTLY:
+				return MeasureSpec.getSize(valueMeasureSpec);
+			case MeasureSpec.AT_MOST:
+				return Math.min(value, MeasureSpec.getSize(valueMeasureSpec));
+			default:
+			case MeasureSpec.UNSPECIFIED:
+				return value;
 		}
 	}
 

@@ -1,4 +1,4 @@
-package com.chess.views;
+package com.chess.test.views;
 
 import android.content.Context;
 import android.content.res.Configuration;
@@ -6,7 +6,7 @@ import android.graphics.*;
 import android.graphics.Paint.Style;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
-import com.chess.R;
+import com.chess.test.R;
 
 public class BackgroundChessDrawable extends Drawable {
 
@@ -104,24 +104,24 @@ public class BackgroundChessDrawable extends Drawable {
 			shinePaths[i] = new Path();
 			setCoordinates(shinePaths[i], 0, (int) width, 0, (int) height);
 			switch (i) {
-			case 0:
-				shinePaints[i].setShader(new LinearGradient(0, 0, 0, borders[i], blackColor, 0x0000000,
-						Shader.TileMode.CLAMP));
-				break;
-			case 1:
-				shinePaints[i].setShader(new LinearGradient(0, 0, borders[i], 0, blackColor, 0x0000000,
-						Shader.TileMode.CLAMP));
-				break;
-			case 2:
-				shinePaints[i].setShader(new LinearGradient(width, 0, borders[i], 0, blackColor, 0x0000000,
-						Shader.TileMode.CLAMP));
-				break;
-			case 3:
-				shinePaints[i].setShader(new LinearGradient(0, height, 0, borders[i], blackColor, 0x0000000,
-						Shader.TileMode.CLAMP));
-				break;
-			default:
-				break;
+				case 0:
+					shinePaints[i].setShader(new LinearGradient(0, 0, 0, borders[i], blackColor, 0x0000000,
+							Shader.TileMode.CLAMP));
+					break;
+				case 1:
+					shinePaints[i].setShader(new LinearGradient(0, 0, borders[i], 0, blackColor, 0x0000000,
+							Shader.TileMode.CLAMP));
+					break;
+				case 2:
+					shinePaints[i].setShader(new LinearGradient(width, 0, borders[i], 0, blackColor, 0x0000000,
+							Shader.TileMode.CLAMP));
+					break;
+				case 3:
+					shinePaints[i].setShader(new LinearGradient(0, height, 0, borders[i], blackColor, 0x0000000,
+							Shader.TileMode.CLAMP));
+					break;
+				default:
+					break;
 			}
 		}
 		pathsInitiated = true;

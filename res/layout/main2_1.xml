@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:dot="http://schemas.android.com/apk/res/com.chess"
+    xmlns:dot="http://schemas.android.com/apk/res/com.chess.test"
     android:id="@id/mainView"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -14,7 +14,7 @@
 
     -->
 
-    <com.chess.views.DashBoardLayout
+    <com.chess.test.views.DashBoardLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 <!--         <FrameLayout 
@@ -30,7 +30,7 @@
                 android:text="Play Live" 
                 />
         </FrameLayout> -->        
-        <com.chess.views.CenteredButton
+        <com.chess.test.views.CenteredButton
             android:layout_height="match_parent"
             android:layout_width="match_parent"
             android:id="@id/playLiveFrame"
@@ -38,7 +38,7 @@
             dot:buttonText="Play Live"
             dot:buttonDrawable="@drawable/dashboard_icon"
             />
-    </com.chess.views.DashBoardLayout>
+    </com.chess.test.views.DashBoardLayout>
  
 
 
