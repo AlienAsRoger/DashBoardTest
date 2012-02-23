@@ -66,6 +66,7 @@ public class DashBoardTestActivity extends ActionBarActivityMy implements OnClic
 			startActivity(new Intent(this, ButtonTestActivity.class));
 		} else if (v.getId() == R.id.playOnlineFrame) {
 			Toast.makeText(this, "playOnlineFrame", Toast.LENGTH_SHORT).show();
+			startActivity(new Intent(this, EmptyActivity.class));
 		}
 		// TODO Auto-generated method stub
 

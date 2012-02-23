@@ -2,6 +2,7 @@ package com.chess.test.views;
 
 import android.content.Context;
 import android.content.res.Configuration;
+import android.graphics.*;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RelativeLayout;
@@ -21,6 +22,15 @@ public class DashBoardLayout extends RelativeLayout {
 	private int[] portBackgrounds;
 	private int[] landBackgrounds;
 	private int screenOrientation;
+	private Paint paint;
+	
+	private Bitmap grad;
+
+	private int centerX;
+	private int centerY;
+	private int gradRadius;
+	private int startGradientColor;
+	private int endGradientColor;
 
 	public DashBoardLayout(Context context) {
 		super(context, null);
@@ -55,6 +65,43 @@ public class DashBoardLayout extends RelativeLayout {
 				R.drawable.dashboard_item_rb
 		};
 		screenOrientation = getResources().getConfiguration().orientation;
+		paint = new Paint();
+		paint.setColor(Color.RED);
+		// init colors
+		startGradientColor = getResources().getColor(R.color.glow_border);
+		endGradientColor = getResources().getColor(R.color.dashboard_button);
+//		endGradientColor = Color.TRANSPARENT;
+	}
+
+
+	@Override
+	protected void dispatchDraw(Canvas canvas) {
+		super.dispatchDraw(canvas);
+		
+
+//		if(grad == null){
+//			gradRadius = getWidth()/2;
+//			grad = makeRadGrad();
+//			centerX =  getWidth()/2;
+//			centerY =  getHeight()/2;
+//		}
+//		canvas.drawBitmap(grad,centerX,centerY,paint);
+
+	}
+
+
+	private Bitmap makeRadGrad() {
+		RadialGradient gradient = new RadialGradient(gradRadius, gradRadius, gradRadius, startGradientColor,
+				endGradientColor, android.graphics.Shader.TileMode.CLAMP);
+		Paint p = new Paint();
+		p.setDither(true);
+		p.setShader(gradient);
+
+		Bitmap bitmap = Bitmap.createBitmap(gradRadius*2, gradRadius*2, Bitmap.Config.ARGB_8888);
+		Canvas c = new Canvas(bitmap);
+		c.drawCircle(gradRadius, gradRadius, gradRadius, p);
+
+		return bitmap;
 	}
 
 	@Override

@@ -23,7 +23,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.chess.R;
+import com.chess.test.R;
 
 /**
  * An extension of {@link ActionBarHelper} that provides Android 3.0-specific

@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import com.chess.test.R;
 
-public class CenteredButton extends FrameLayout implements View.OnClickListener, View.OnTouchListener {
+public class CenteredButton extends FrameLayout implements /*View.OnClickListener, */View.OnTouchListener {
 //public class CenteredButton extends RelativeLayout {
 
 	static final String TAG = "CenteredButton";
@@ -89,7 +89,7 @@ public class CenteredButton extends FrameLayout implements View.OnClickListener,
 		addView(button, params);
 		this.setTouchDelegate(button.getTouchDelegate());
 		button.setClickable(true);
-		button.setOnClickListener(this);
+//		button.setOnClickListener(this);
 		button.setOnTouchListener(this);
 		setClickable(true);
 	}
@@ -208,7 +208,7 @@ public class CenteredButton extends FrameLayout implements View.OnClickListener,
 		}
 	}
 
-	private boolean isButtonClicked;
+//	private boolean isButtonClicked;
 //	@Override
 //	public boolean performClick() {
 //		refreshDrawableState();
@@ -217,11 +217,11 @@ public class CenteredButton extends FrameLayout implements View.OnClickListener,
 //		return super.performClick();
 //	}
 
-	@Override
-	public void onClick(View view) {
-		isButtonClicked = view.equals(button);
-//		performClick();
-	}
+//	@Override
+//	public void onClick(View view) {
+//		isButtonClicked = view.equals(button);
+////		performClick();
+//	}
 
 
 }

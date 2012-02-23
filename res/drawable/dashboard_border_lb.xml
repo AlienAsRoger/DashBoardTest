@@ -28,21 +28,12 @@
     </item>
 
     <item
-        android:bottom="1px"
-        android:left="1px"
-        android:right="0px"
-        android:top="0px"
+        android:bottom="2px"
+        android:left="2px"
+        android:right="1px"
+        android:top="1px"
         android:id="@id/glow_layer"
-        >
-        <shape android:dither="true">
-            <gradient
-                android:centerX="100%"
-                android:centerY="0.0"
-                android:endColor="@color/dashboard_button"
-                android:gradientRadius="180"
-                android:startColor="@color/glow_border2"
-                android:type="radial"/>
-        </shape>
-    </item>
+        android:drawable="@drawable/dashboard_glow_lb"
+        />
 
 </layer-list>

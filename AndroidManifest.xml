@@ -21,6 +21,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".views.ButtonTestActivity"/>
+        <activity android:name=".views.EmptyActivity"/>
     </application>
 
 </manifest>
