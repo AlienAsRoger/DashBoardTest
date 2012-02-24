@@ -5,7 +5,9 @@ import android.app.Activity;
 import android.graphics.PixelFormat;
 import android.os.Bundle;
 import android.view.WindowManager;
+import android.widget.Spinner;
 import com.chess.test.R;
+import com.chess.test.views.adapters.ChessSpinnerAdapter;
 
 /**
  * ButtonTestActivity class
@@ -21,10 +23,18 @@ public class ButtonTestActivity extends Activity {
 		// Eliminates color banding
 		getWindow().setFormat(PixelFormat.RGBA_8888);
 	}
+	
+	private Spinner spinner;
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.button_test);
 		findViewById(R.id.mainView).setBackgroundDrawable(new BackgroundChessDrawable(this));
+		spinner = (Spinner) findViewById(R.id.spinner);
 
+		
+		spinner.setAdapter(new ChessSpinnerAdapter(this,R.array.AIM));
 	}
+
+
+
 }

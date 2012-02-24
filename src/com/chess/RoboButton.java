@@ -13,13 +13,13 @@ public class RoboButton extends Button {
 	private String ttfName;
 //    private float density;
 
-	public RoboButton(Context context, AttributeSet attrs, int defStyle) {
-		super(context, attrs, defStyle);
-	}
-
-	public RoboButton(Context context) {
-		super(context);
-	}
+//	public RoboButton(Context context, AttributeSet attrs, int defStyle) {
+//		super(context, attrs, defStyle);
+//	}
+//
+//	public RoboButton(Context context) {
+//		super(context);
+//	}
 
 	public RoboButton(Context context, AttributeSet attrs) {
 		super(context, attrs);

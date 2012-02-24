@@ -48,12 +48,17 @@
             android:layout_height="wrap_content"
             robo:ttf="Regular"
             android:hint="Username"
+
             />
 
         <Spinner
+            android:id="@+id/spinner"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:entries="@array/AIM"/>
+            android:entries="@array/AIM"
+
+            />
 
         <RadioGroup
             android:layout_width="match_parent"
