@@ -2,6 +2,17 @@
 <resources>
     <dimen name="text_size_small">16sp</dimen>
 
+	<dimen name="dashboard_padding_top">21dip</dimen>
+	<dimen name="dashboard_padding_bot">68dip</dimen>
+	<dimen name="dashboard_padding_side">21dip</dimen>
+
+<!--
+	<dimen name="dashboard_padding_top">5dip</dimen>
+	<dimen name="dashboard_padding_bot">52dip</dimen>
+	<dimen name="dashboard_padding_side">5dip</dimen>
+-->
+
+
     <!-- Rounded buttons -->
     <dimen name="rounded_button_radius">4px</dimen>
     <dimen name="button_pressed_stroke_radius">4px</dimen>
@@ -13,7 +24,10 @@
     <dimen name="small_button_height">35dip</dimen>
     <dimen name="rounded_button_height">56dip</dimen>
     <dimen name="rounded_button_padding_disabled">0dip</dimen>
-    <dimen name="rounded_button_padding">0dip</dimen>
+	<dimen name="rounded_button_padding_top">0dip</dimen>
+	<dimen name="rounded_button_padding_left">0dip</dimen>
+	<dimen name="rounded_button_padding_right">0dip</dimen>
+	<dimen name="rounded_button_padding_bottom">0dip</dimen>
 
     <dimen name="default_field_height">48dip</dimen>
     <dimen name="default_button_height">45dip</dimen>

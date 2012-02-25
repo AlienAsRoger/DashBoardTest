@@ -8,6 +8,7 @@ import android.view.*;
 import android.view.View.OnClickListener;
 import android.widget.Toast;
 import com.chess.test.R;
+import com.chess.utils.CommonUtils;
 
 public class DashBoardTestActivity extends ActionBarActivityMy implements OnClickListener {
 	@Override
@@ -26,11 +27,7 @@ public class DashBoardTestActivity extends ActionBarActivityMy implements OnClic
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main3);
 
-		View mainView = findViewById(R.id.mainView);
-		mainView.setBackgroundDrawable(new BackgroundChessDrawable(this));
-		int padding = getResources().getDrawable(R.drawable.chess_cell).getIntrinsicWidth() / 2;
-		mainView.setPadding(padding, padding, padding, padding);
-
+		CommonUtils.setBackground(findViewById(R.id.mainView),this);
 //		findViewById(R.id.playLive).setTouchDelegate(findViewById(R.id.playLiveFrame).getTouchDelegate());
 		findViewById(R.id.playLiveFrame).setOnClickListener(this);
 		findViewById(R.id.playOnlineFrame).setOnClickListener(this);
@@ -68,8 +65,6 @@ public class DashBoardTestActivity extends ActionBarActivityMy implements OnClic
 			Toast.makeText(this, "playOnlineFrame", Toast.LENGTH_SHORT).show();
 			startActivity(new Intent(this, EmptyActivity.class));
 		}
-		// TODO Auto-generated method stub
-
 	}
 /*
 	@Override

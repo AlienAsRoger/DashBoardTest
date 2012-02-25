@@ -9,8 +9,10 @@
 
     <com.chess.test.views.DashBoardLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
 
+		>
+		<!--android:background="@drawable/shadow_back"-->
         <com.chess.test.views.CenteredButton
             android:id="@id/playLiveFrame"
             style="@style/DashboardItem"

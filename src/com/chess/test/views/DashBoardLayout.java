@@ -147,8 +147,13 @@ public class DashBoardLayout extends RelativeLayout {
 				resolveSize(mMaxChildHeight, heightMeasureSpec));
 	}
 
+
 	@Override
 	protected void onLayout(boolean changed, int l, int t, int r, int b) {
+//		int sidePadding = getPaddingLeft() +getPaddingRight();
+//		int heightPadding = getPaddingTop() + getPaddingBottom();
+//		int width = r - l - sidePadding;
+//		int height = b - t - heightPadding;
 		int width = r - l;
 		int height = b - t;
 
@@ -248,12 +253,14 @@ public class DashBoardLayout extends RelativeLayout {
 //			top = vSpace * (row + 1) + height * row;
 			left = width * col;
 			top = height * row;
+//			left = getPaddingLeft() + width * col;  // TODO improve
+//			top = getPaddingTop() + height * row;
 
-			right = (hSpace == 0 && col == cols - 1) ? r : (left + width);
+
+			right = (hSpace == 0 && col == cols - 1) ? r : (left + width) ;
 			bottom = (vSpace == 0 && row == rows - 1) ? b : (top + height);
-
-//			right = (hSpace == 0 && col == cols - 1) ? r : (left + width);
-//			bottom = (vSpace == 0 && row == rows - 1) ? b : (top + height);
+//			right = (hSpace == 0 && col == cols - 1) ? r : (left + width) - getPaddingRight();
+//			bottom = (vSpace == 0 && row == rows - 1) ? b : (top + height)- getPaddingBottom();
 
 			child.layout(left, top, right, bottom);
 			if (screenOrientation == Configuration.ORIENTATION_LANDSCAPE) {
