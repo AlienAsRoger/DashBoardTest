@@ -10,7 +10,7 @@ import com.chess.test.R;
 
 public class RoboEditText extends EditText {
 	private Context context;
-	private String ttfName;
+	private String ttfName = "Regular";
 //    private float density;
 
 	public RoboEditText(Context context, AttributeSet attrs, int defStyle) {

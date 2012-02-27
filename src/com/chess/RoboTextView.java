@@ -10,7 +10,7 @@ import com.chess.test.R;
 
 public class RoboTextView extends TextView {
 	private Context context;
-	private String ttfName;
+	private String ttfName = "Regular";
 //    private float density;
 
 	public RoboTextView(Context context, AttributeSet attrs, int defStyle) {

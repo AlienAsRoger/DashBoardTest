@@ -10,7 +10,7 @@ import com.chess.test.R;
 
 public class RoboButton extends Button {
 	private Context context;
-	private String ttfName;
+	private String ttfName = "Regular";
 //    private float density;
 
 //	public RoboButton(Context context, AttributeSet attrs, int defStyle) {
@@ -39,6 +39,7 @@ public class RoboButton extends Button {
 			}
 		}
 		init();
+
 	}
 
 	private void init() {
