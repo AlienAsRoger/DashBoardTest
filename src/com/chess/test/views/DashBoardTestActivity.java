@@ -49,7 +49,7 @@ public class DashBoardTestActivity extends ActionBarActivityMy implements OnClic
 				Toast.makeText(this, "Tapped home", Toast.LENGTH_SHORT).show();
 				break;
 
-			case R.id.menu_settings:
+			case R.id.menu_preferences:
 				Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
 				break;
 		}

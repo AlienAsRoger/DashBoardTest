@@ -1,11 +1,17 @@
 package com.chess.test.views;
 
 
-import android.app.Activity;
+import actionbarcompat.ActionBarActivity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.graphics.PixelFormat;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.Spinner;
+import android.widget.Toast;
 import com.chess.test.R;
 import com.chess.test.views.adapters.ChessSpinnerAdapter;
 
@@ -15,7 +21,7 @@ import com.chess.test.views.adapters.ChessSpinnerAdapter;
  * @author alien_roger
  * @created at: 09.02.12 4:54
  */
-public class ButtonTestActivity extends Activity {
+public class ButtonTestActivity extends ActionBarActivity {
 	@Override
 	public void onAttachedToWindow() {
 		super.onAttachedToWindow();
@@ -33,6 +39,43 @@ public class ButtonTestActivity extends Activity {
 
 		
 		spinner.setAdapter(new ChessSpinnerAdapter(this,R.array.AIM));
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuInflater menuInflater = getMenuInflater();
+		menuInflater.inflate(R.menu.main, menu);
+
+		return super.onCreateOptionsMenu(menu);
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+			case android.R.id.home:
+				onBackPressed();
+//			Toast.makeText(this, "Tapped home", Toast.LENGTH_SHORT).show();
+				break;
+
+			case R.id.menu_refresh:
+				break;
+
+			case R.id.menu_preferences:
+				// TODO show popup list
+				final CharSequence[] items = {"Red", "Green", "Blue"};
+
+				new AlertDialog.Builder(this)
+				.setTitle("Pick a color")
+				.setItems(items, new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int item) {
+						Toast.makeText(getApplicationContext(), items[item], Toast.LENGTH_SHORT).show();
+					}
+				}).show();
+//				AlertDialog alert = builder.create();
+//				alert.show();
+				break;
+		}
+		return super.onOptionsItemSelected(item);
 	}
 
 

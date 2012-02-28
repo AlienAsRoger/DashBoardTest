@@ -15,15 +15,20 @@
   -->
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/menu_settings"
-        android:title="@string/settings"
-        android:icon="@drawable/ic_action_settings"
-        android:orderInCategory="0"
-        android:showAsAction="always" />
+	<item android:id="@id/menu_refresh"
+		android:title="done"
+		android:icon="@drawable/ic_action_done"
+		android:orderInCategory="1"
+		android:showAsAction="always" />
+	<item android:id="@+id/menu_delete"
+		android:title="delete"
+		android:icon="@drawable/ic_action_delete"
+		android:orderInCategory="0"
+		android:showAsAction="always" />
 
-<!--    <item android:id="@+id/menu_preferences"
-        android:title="@string/preferences"
-        android:icon="@android:drawable/ic_menu_preferences"
-        android:orderInCategory="1"
-        android:showAsAction="never" /> -->
+	<item android:id="@+id/menu_preferences"
+		android:title="preferences"
+		android:icon="@android:drawable/ic_menu_preferences"
+		android:orderInCategory="1"
+		android:showAsAction="never"/>
 </menu>
