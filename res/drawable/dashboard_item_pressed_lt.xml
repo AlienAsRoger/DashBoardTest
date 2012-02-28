@@ -36,9 +36,7 @@
 					android:centerColor="@android:color/transparent"
 					android:endColor="@color/shadow_border"
 					android:angle="270"
-					android:centerX="50%"
 					android:centerY="95%"
-
 					/>
 		</shape>
 	</item>
