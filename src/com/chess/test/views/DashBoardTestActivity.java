@@ -31,6 +31,7 @@ public class DashBoardTestActivity extends ActionBarActivityMy implements OnClic
 //		findViewById(R.id.playLive).setTouchDelegate(findViewById(R.id.playLiveFrame).getTouchDelegate());
 		findViewById(R.id.playLiveFrame).setOnClickListener(this);
 		findViewById(R.id.playOnlineFrame).setOnClickListener(this);
+		findViewById(R.id.playComputerFrame).setOnClickListener(this);
 
 	}
 
@@ -62,8 +63,9 @@ public class DashBoardTestActivity extends ActionBarActivityMy implements OnClic
 			Toast.makeText(this, "playLiveFrame", Toast.LENGTH_SHORT).show();
 			startActivity(new Intent(this, ButtonTestActivity.class));
 		} else if (v.getId() == R.id.playOnlineFrame) {
-			Toast.makeText(this, "playOnlineFrame", Toast.LENGTH_SHORT).show();
-			startActivity(new Intent(this, EmptyActivity.class));
+			startActivity(new Intent(this, ButtonTest2Activity.class));
+		} else if (v.getId() == R.id.playComputer) {
+			startActivity(new Intent(this, GamePanelTestActivity.class));
 		}
 	}
 /*

@@ -2,13 +2,14 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item
-        android:left="@dimen/button_margin4stroke"
-        android:top="@dimen/button_margin4stroke"
-        android:right="@dimen/button_margin4stroke"
-        android:bottom="@dimen/button_margin4stroke"
+		android:left="@dimen/button_margin4stroke"
+		android:top="@dimen/button_margin4stroke"
+		android:right="@dimen/button_margin4stroke"
+		android:bottom="@dimen/button_margin4stroke"
         android:drawable="@drawable/button_green">
 
     </item>
+<!--
     <item >
         <shape android:dither="true">
             <corners android:radius="@dimen/button_pressed_stroke_radius"  />
@@ -19,6 +20,7 @@
         </shape>
 
     </item>
+-->
 
 
 

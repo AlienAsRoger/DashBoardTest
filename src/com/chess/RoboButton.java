@@ -9,20 +9,25 @@ import android.widget.Button;
 import com.chess.test.R;
 
 public class RoboButton extends Button {
-	private Context context;
-	private String ttfName = "Regular";
+    private Context context;
+    private String ttfName = "Regular";
 //    private float density;
 
-//	public RoboButton(Context context, AttributeSet attrs, int defStyle) {
-//		super(context, attrs, defStyle);
-//	}
-//
-//	public RoboButton(Context context) {
-//		super(context);
-//	}
+	public RoboButton(Context context, AttributeSet attrs, int defStyle) {
+		super(context, attrs, defStyle);
+		setupFont(context, attrs);
+	}
 
-	public RoboButton(Context context, AttributeSet attrs) {
-		super(context, attrs);
+	public RoboButton(Context context) {
+		super(context);
+	}
+
+    public RoboButton(Context context, AttributeSet attrs) {
+        super(context, attrs);
+		setupFont(context, attrs);
+    }
+
+	private void setupFont(Context context, AttributeSet attrs){
 		this.context = context;
 
 
@@ -34,22 +39,20 @@ public class RoboButton extends Button {
 			switch (attr) {
 				case R.styleable.BlendTextView_ttf: {
 					ttfName = a.getString(i);
-				}
-				break;
+				}break;
 			}
 		}
 		init();
-
 	}
 
-	private void init() {
-		Typeface font = Typeface.createFromAsset(context.getAssets(), "fonts/Roboto-" + ttfName + ".ttf");
-		setTypeface(font);
-	}
+    private void init() {
+        Typeface font = Typeface.createFromAsset(context.getAssets(), "fonts/Roboto-" + ttfName + ".ttf");
+        setTypeface(font);
+    }
 
-	@Override
-	public void setTypeface(Typeface tf) {
-		super.setTypeface(tf);
-	}
+    @Override
+    public void setTypeface(Typeface tf) {
+        super.setTypeface(tf);
+    }
 
 }

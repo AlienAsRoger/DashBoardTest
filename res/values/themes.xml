@@ -3,8 +3,9 @@
         <item name="android:windowTitleBackgroundStyle">@style/ActionBarCompatBackground</item>
     </style>
 
-    <style name="OrangeButtonTheme" parent="MyAppTheme">
-        <item name="android:buttonStyle">@style/button_orange</item>
+    <style name="MyAppTheme.OrangeButtonTheme" >
+        <item name="android:buttonStyle">@style/Text.Button</item>
+		<item name="android:dither">true</item>
         <item name="android:textAppearanceSmall">@style/DefaultText</item>
         <item name="android:editTextStyle">@style/DefaultEdt</item>
         <item name="android:spinnerStyle">@style/spinnerStyle</item>
@@ -13,5 +14,7 @@
         <!--<item name="android:spinnerDropDownItemStyle">@style/spinnerStyleDropDown</item>-->
     </style>
 
-
+	<style name="MyAppTheme.OrangeButtonTheme.Grey">
+		<item name="android:buttonStyle">@style/Text.Button.Grey</item>
+	</style>
 </resources>

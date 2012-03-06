@@ -16,9 +16,11 @@
     <!-- Rounded buttons -->
     <dimen name="rounded_button_radius">4px</dimen>
     <dimen name="button_pressed_stroke_radius">4px</dimen>
-    <dimen name="button_pressed_stroke_width_1">8px</dimen>
+    <dimen name="button_pressed_stroke_width_1">10px</dimen>
     <dimen name="button_pressed_stroke_width_2">8px</dimen>
     <dimen name="button_margin4stroke">6px</dimen> <!--Must be less than stroke width_1 by 2 px-->
+	<dimen name="button_margin4stroke_top">10px</dimen>
+	<dimen name="button_margin4stroke_bottom">10px</dimen>
 
 
     <dimen name="small_button_height">35dip</dimen>
