@@ -64,7 +64,7 @@ public class DashBoardTestActivity extends ActionBarActivityMy implements OnClic
 			startActivity(new Intent(this, ButtonTestActivity.class));
 		} else if (v.getId() == R.id.playOnlineFrame) {
 			startActivity(new Intent(this, ButtonTest2Activity.class));
-		} else if (v.getId() == R.id.playComputer) {
+		} else if (v.getId() == R.id.playComputerFrame) {
 			startActivity(new Intent(this, GamePanelTestActivity.class));
 		}
 	}
