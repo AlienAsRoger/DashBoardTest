@@ -74,6 +74,7 @@
 				android:layout_height="wrap_content"
 				android:background="@android:color/white"
 
+
 				>
 			</LinearLayout>
 			<LinearLayout
@@ -94,5 +95,20 @@
 			/>
 
 	</LinearLayout>
+	<FrameLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_gravity="left"
+		>
+		<ImageView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:src="@drawable/shifted_image"
+			android:adjustViewBounds="false"
+			android:scaleType="center"
+			android:layout_gravity="left"
+
+			/>
+		</FrameLayout>
 
 </LinearLayout>
