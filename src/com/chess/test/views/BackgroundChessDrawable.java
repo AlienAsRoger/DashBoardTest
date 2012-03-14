@@ -1,7 +1,6 @@
 package com.chess.test.views;
 
 import android.content.Context;
-import android.content.res.Configuration;
 import android.graphics.*;
 import android.graphics.drawable.Drawable;
 import com.chess.test.R;
@@ -40,15 +39,15 @@ public class BackgroundChessDrawable extends Drawable {
 	}
 
 	private void createGradientPath(){
-		float border = 0;
-		if (screenOrientation == Configuration.ORIENTATION_LANDSCAPE) {
-			border = height * 3 / 4;
-		} else if (screenOrientation == Configuration.ORIENTATION_PORTRAIT) {
-			border = -5;
-		}
+		float border = -5;
 		gradientPath = new Path();
-		setCoordinates(gradientPath, 0, width, 0, height);
+//		if (screenOrientation == Configuration.ORIENTATION_LANDSCAPE) {
+//			border = -5;
+//		} else if (screenOrientation == Configuration.ORIENTATION_PORTRAIT) {
+//			border = -5;
+//		}
 		int blackColor = 0xB4000000;
+		setCoordinates(gradientPath, 0, width, 0, height);
 		gradientPaint.setShader(
 				new LinearGradient(0, height, 0, border, blackColor, 0x00000000,
 						Shader.TileMode.CLAMP));
