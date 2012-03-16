@@ -73,7 +73,7 @@ public class CenteredButton extends FrameLayout implements /*View.OnClickListene
 //		Log.i(TAG, "DraggableDot @ " + this + " : radius=" + mRadius + " legend='" + buttonText + "' anr=" + mAnrType);
 
 		button = new Button(getContext());
-		LayoutParams buttonParams = new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT);
+		LayoutParams buttonParams = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
 		button.setLayoutParams(buttonParams);
 		button.setText(buttonText);
 		button.setTextAppearance(getContext(), R.style.DashboardItemText);
@@ -83,7 +83,7 @@ public class CenteredButton extends FrameLayout implements /*View.OnClickListene
 		button.setShadowLayer(shadowRadius, shadowDx, shadowDy, Color.BLACK);
 		button.setCompoundDrawablesWithIntrinsicBounds(null, drawable, null, null);
 		button.setBackgroundColor(Color.TRANSPARENT);
-		LayoutParams params = new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT);
+		LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
 		params.gravity = Gravity.CENTER;
 
 		addView(button, params);

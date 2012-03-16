@@ -2,7 +2,9 @@ package com.chess.test.views;
 
 import android.content.Context;
 import android.content.res.Configuration;
-import android.graphics.*;
+import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RelativeLayout;
@@ -73,36 +75,19 @@ public class DashBoardLayout extends RelativeLayout {
 //		endGradientColor = Color.TRANSPARENT;
 	}
 
-
-	@Override
-	protected void dispatchDraw(Canvas canvas) {
-		super.dispatchDraw(canvas);
-		
-
-//		if(grad == null){
-//			gradRadius = getWidth()/2;
-//			grad = makeRadGrad();
-//			centerX =  getWidth()/2;
-//			centerY =  getHeight()/2;
-//		}
-//		canvas.drawBitmap(grad,centerX,centerY,paint);
-
-	}
-
-
-	private Bitmap makeRadGrad() {
-		RadialGradient gradient = new RadialGradient(gradRadius, gradRadius, gradRadius, startGradientColor,
-				endGradientColor, android.graphics.Shader.TileMode.CLAMP);
-		Paint p = new Paint();
-		p.setDither(true);
-		p.setShader(gradient);
-
-		Bitmap bitmap = Bitmap.createBitmap(gradRadius*2, gradRadius*2, Bitmap.Config.ARGB_8888);
-		Canvas c = new Canvas(bitmap);
-		c.drawCircle(gradRadius, gradRadius, gradRadius, p);
-
-		return bitmap;
-	}
+//	private Bitmap makeRadGrad() {
+//		RadialGradient gradient = new RadialGradient(gradRadius, gradRadius, gradRadius, startGradientColor,
+//				endGradientColor, android.graphics.Shader.TileMode.CLAMP);
+//		Paint p = new Paint();
+//		p.setDither(true);
+//		p.setShader(gradient);
+//
+//		Bitmap bitmap = Bitmap.createBitmap(gradRadius*2, gradRadius*2, Bitmap.Config.ARGB_8888);
+//		Canvas c = new Canvas(bitmap);
+//		c.drawCircle(gradRadius, gradRadius, gradRadius, p);
+//
+//		return bitmap;
+//	}
 
 	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
@@ -149,13 +134,10 @@ public class DashBoardLayout extends RelativeLayout {
 
 
 	@Override
-	protected void onLayout(boolean changed, int l, int t, int r, int b) {
-//		int sidePadding = getPaddingLeft() +getPaddingRight();
-//		int heightPadding = getPaddingTop() + getPaddingBottom();
-//		int width = r - l - sidePadding;
-//		int height = b - t - heightPadding;
-		int width = r - l;
-		int height = b - t;
+	protected void onLayout(boolean changed, int layoutLeft, int layoutTop, int layoutRight, int layoutBottom) {
+		int width = layoutRight - layoutLeft;
+//		Log.d("TEST", "Width = " + width);
+		int height = layoutBottom - layoutTop;
 
 		final int count = getChildCount();
 
@@ -253,14 +235,12 @@ public class DashBoardLayout extends RelativeLayout {
 //			top = vSpace * (row + 1) + height * row;
 			left = width * col;
 			top = height * row;
-//			left = getPaddingLeft() + width * col;  // TODO improve
-//			top = getPaddingTop() + height * row;
 
-
-			right = (hSpace == 0 && col == cols - 1) ? r : (left + width) ;
-			bottom = (vSpace == 0 && row == rows - 1) ? b : (top + height);
-//			right = (hSpace == 0 && col == cols - 1) ? r : (left + width) - getPaddingRight();
-//			bottom = (vSpace == 0 && row == rows - 1) ? b : (top + height)- getPaddingBottom();
+			right = (hSpace == 0 && col == cols - 1) ? width*(col+1) : (left + width) ;
+			bottom = (vSpace == 0 && row == rows - 1) ? layoutBottom : (top + height);
+//			right = (hSpace == 0 && col == cols - 1) ? layoutRight : (left + width) ;
+//			right = (hSpace == 0 && col == cols - 1) ? layoutRight : (left + width) - getPaddingRight();
+//			bottom = (vSpace == 0 && row == rows - 1) ? layoutBottom : (top + height)- getPaddingBottom();
 
 			child.layout(left, top, right, bottom);
 			if (screenOrientation == Configuration.ORIENTATION_LANDSCAPE) {
